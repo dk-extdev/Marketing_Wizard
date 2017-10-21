@@ -1,0 +1,61 @@
+/* Customization */
+/*@media (min-width: 1200px) {
+  .container {
+      width: 1270px;
+  }
+}*/
+
+/* Background color */
+.wrapper-body {
+  background-color: #808080;
+}
+
+.create_video-previewbox {
+  width: 100%;
+  height: 300px;
+  border: solid 1px #ccc;
+}
+
+.create_video-image-crop, 
+.create_video-image-crop img{
+  display: none;
+}
+
+ .create_video-step3-2,
+ .create_video-step3-3 {
+   display: none;
+ }
+
+ .landing-page .pricing-plan.selected {
+   transform: scale(1.0);
+ }
+
+ /* Top Menu - Create Video */
+ .top-navigation .nav > li > a {
+   font-size: 1.2em;
+   font-weight: normal;
+   padding-top: 25px;
+   padding-bottom: 18px;
+ }
+
+ .top-navigation .nav > li.create_video > a,
+ .top-navigation .nav > li.create_video > a:hover {
+   padding: 14px 10px;
+   margin: 11px 10px 4px 10px;
+   background-color: #ff6e2e;
+   color: #fff;
+   border-radius: 8px;
+   border:0px;
+ }
+
+.top-navigation .nav > li.active > a {
+   padding-top:18px;
+   padding-bottom:18px;
+   margin-top:7px;
+   background-color: #6d6ab7;
+   color: #fff;
+   border-top-right-radius: 8px;
+   border-top-left-radius: 8px;
+   border-color: #6d6ab7;
+ }
+ 

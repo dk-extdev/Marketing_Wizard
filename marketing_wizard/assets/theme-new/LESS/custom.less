@@ -1,0 +1,135 @@
+/* Only demo */
+@media (max-width: 1000px) {
+  .welcome-message {
+    display: none;
+  }
+}
+
+/* Wizard */
+.create_video_wizard .wizard > .content{
+  background: none;
+}
+
+.create_video_wizard .wizard > .content > .body {
+  width: 100%;
+  position:inherit;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.create_video_wizard > .wizard > .steps > ul > li {
+  width: 33.33%;
+}
+.create_video_wizard > .wizard > .steps > ul > li > a {
+  margin: 0px;
+  border-radius: 0px;
+  border-bottom: solid 5px #eee;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.create_video_wizard > .wizard > .steps .disabled a {
+  background: none;
+}
+
+.create_video_wizard > .wizard > .steps .current a {
+  background: none;
+  border-color:  @navy;
+  color: @navy
+}
+
+.create_video_wizard > .wizard > .steps .done a {
+  background: none;
+  border-color: lighten(@navy, 10%);
+  color: lighten(@navy, 10%);
+}
+
+/* Filebox */
+.file-box {
+  width: 286px;
+}
+
+.file-box .file{
+  overflow: hidden;
+}
+
+.file-box .file .description .file-name {
+  padding: 0px;
+  background-color: #f8f8f8;
+  border-top: 0px;  
+}
+.file-box .file .description {
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-top: 1px solid @border-color;  
+}
+.file-box .file .premium {
+  position: absolute;
+  top: 0;
+  background-color: #74a510;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-transform: rotate3d(0,0,1,45deg);
+  -khtml-transform: rotate3d(0,0,1,45deg);
+  -moz-transform: rotate3d(0,0,1,45deg);
+  -ms-transform: rotate3d(0,0,1,45deg);
+  -o-transform: rotate3d(0,0,1,45deg);
+  transform: rotate3d(0,0,1,45deg);
+  padding: 0 31px 0 70px;
+  z-index: 10;
+  -webkit-transform-origin: bottom;
+  -khtml-transform-origin: bottom;
+  -moz-transform-origin: bottom;
+  -ms-transform-origin: bottom;
+  -o-transform-origin: bottom;
+  transform-origin: bottom;
+  right: -34px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.wizard > .content > .body .file-box ul.tags > li{
+  list-style: none;
+  display: inline-block;
+  font-size: 10px;
+  background-color: @navy;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 2px;
+  border: 1px solid @border-color;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+/* Top header bar */
+.top-header-bar {
+  border-bottom: solid 2px @navy !important;
+}
+
+/* Data Table */
+.table-data-primary > thead > tr > th {
+  background-color: @navy;
+  color: #fff;
+  border-right: solid 1px @border-color;
+}
+.table-data-primary > thead > tr > th:last-child {
+  border-right: 0px;
+}
+
+.table-data-primary > tbody > tr > td {
+  border-right: solid 1px @border-color;
+}
+.table-data-primary > tbody > tr > td:last-child {
+  border-right: 0px;
+}
+
+.table-data-primary > tbody > tr:last-child {
+  border-bottom: solid 1px @border-color;
+}
