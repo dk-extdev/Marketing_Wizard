@@ -1,5 +1,3 @@
-<header>
-
 <div class="row border-bottom white-bg top-header-bar">
 
     <div class = "container" >
@@ -81,5 +79,3 @@
 </div>
 
 </div>
-
-</header>

@@ -2,7 +2,7 @@
 
 @section('title', 'User Login')
 
-@section('content')<head><style>.footer{margin-top:22%;}</style></head>
+@section('content')
 
 <div class="gt_main_content_wrap">
     <section class="gt_about_bg">

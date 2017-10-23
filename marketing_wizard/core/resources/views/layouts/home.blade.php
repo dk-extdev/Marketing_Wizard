@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- index.html  2016 00:22:55  -->
 <head>
     @include('partials.home.header')

@@ -73,6 +73,26 @@ class VideosController extends Controller
         ->withTitle($title)
         ->withFooter($footer);
     }
+    public function deleteMyVideos($id)
+    {
+        $logo = Logo::first();
+        $social = SocialIcon::first();
+        $contact = Contact::first();
+        $title = Title::first();
+        $footer = Footer::first();
+
+        $user_id_loggedin = Session::get('user_id_loggedin');
+
+        if($user_id_loggedin == ''){
+            return redirect()->action(
+                'UserAuthController@getLogin'
+            );
+        }
+        UserVideos::where('user_video_id', $id)->delete();
+        $response = array();
+        $response['success'] = 'success';
+        return \Response::json($response);
+    }
 
     public function my_purchases()
     {

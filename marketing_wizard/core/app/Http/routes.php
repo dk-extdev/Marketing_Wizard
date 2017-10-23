@@ -26,6 +26,8 @@ Route::get('latest_videos', ['as' => 'latest_videos', 'uses' => 'VideosControlle
 
 Route::get('my_videos', ['as' => 'my_videos', 'uses' => 'VideosController@getMyVideos']);
 Route::get('my_purchases', ['as' => 'my_purchases', 'uses' => 'VideosController@my_purchases']);
+/* Delete videos */
+Route::post('my_videos/delete/{id}', ['as' => 'my_videos', 'uses' => 'VideosController@deleteMyVideos']);
 
 /* user Forget Password */
 Route::get('user-forget-password',['as'=>'user-forget-password','uses'=>'HomeController@getForgetPassword']);

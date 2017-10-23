@@ -168,7 +168,7 @@ h5 {
 }
 .nav > li.active a {
     background-color: #6d6ab7;
-    border-left: 4px solid #6663b4;
+    /*border-left: 4px solid #6663b4;*/
     border-radius: 8px 8px 0px 0px;
         border-bottom-color: #6d6ab7;
 }
@@ -1634,8 +1634,38 @@ a.DTTT_button:hover:not(.DTTT_disabled) {
   background: #fff;
   box-shadow: none;
 }
+.dataTables_filter {
+  float: none !important;
+  margin-left: 0;
+  margin-right: 0;
+}
 .dataTables_filter label {
   margin-right: 5px;
+  padding: 0 16px 0 0;
+    font-size: 18px;
+    line-height: 46px;
+  background-color: #6d6ab7;
+    border-color: #6d6ab7;
+    color: #FFFFFF;
+    border-radius: 0 3px 3px 0;
+    display: block;
+}
+.dataTables_filter input[type=search] {
+  float: left;
+  margin: 0 10px 0 0 !important;
+  padding: 6px 10px;
+  width: calc(100% - 76px);
+  height: 46px;
+  line-height: 34px;
+  border: 1px solid rgb(229,230,231);
+  border-right-width: 0;
+  font-size: 14px;
+  color: #555;
+  border-radius: 1px 0 0 1px;
+  outline: none;
+}
+.dataTables_filter input[type=search]:focus {
+  border-color: #6d6ab7 !important;
 }
 /* CIRCLE */
 .img-circle {
@@ -8464,7 +8494,8 @@ section.gt_about_bg{padding:40px; padding-bottom: 70px;}
     font-weight: 100;
     
 }
-div#myTable_filter label, #myTable2_filter label{
+.dashboard-video div#myTable_filter label, 
+.dashboard-video  #myTable2_filter label{
     background-color: #6d6ab7;
     border-color: #6d6ab7;
     color: #FFFFFF;
@@ -8475,18 +8506,60 @@ div#myTable_filter label, #myTable2_filter label{
     margin-top: 10px;
     margin-bottom: 15px;
 }
-div#myTable_filter input{
-    height: 45px;
-    position: absolute;
-    margin-left: -97.8%;
-    margin-top: -11px;
-    width: 91%;
-    border: 1px solid #e5e6e7;
-    padding: 6px 12px;
-    font-weight: normal;
-    font-size: 14px;
-	color:#676a6c;
+
+.dashboard-video div#myTable_filter, 
+.dashboard-video #myTable2_filter {
+  float: none;
 }
+
+.dashboard-video div#myTable_filter label, 
+.dashboard-video #myTable2_filter label{
+    background-color: inherit;
+    border-color: transparent;
+    color: transparent;
+  padding: 0;
+    font-size: 0;
+    line-height: 1.5;
+    border-radius: 0;
+    margin: 0 0 5px 0;
+    display: block;
+}
+.dashboard-video div#myTable_filter label:after, 
+.dashboard-video #myTable2_filter label:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.dashboard-video div#myTable_filter input,
+.dashboard-video div#myTable2_filter input {
+  position: relative;
+  float: none;
+  margin: 0;
+  width: 100%;
+    height: 30px;
+    line-height: 1.5;
+    outline: none;
+}
+.dashboard-video div#myTable_filter input:focus,
+.dashboard-video div#myTable2_filter input:focus {
+  border-color: #6d6ab7 !important;
+}
+
+.dashboard-video div#myTable_filter input[type=search],
+.dashboard-video div#myTable2_filter input[type=search] {
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+  color: #555;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+  font-size: 14px;
+}
+
 #myTable2_filter input{
     height: 45px;
     position: absolute;
@@ -8501,10 +8574,6 @@ div#myTable_filter input{
 }
 ::-webkit-input-placeholder{
 	color:#676a6c !important;
-}
-
-h3.panel-sub-heading{
-margin-bottom: 0px;
 }
 
 
@@ -8571,9 +8640,17 @@ table.video-page.dataTable thead tr th,table.video-page.dataTable tbody tr td{
 	    border-right: solid 1px #e7eaec;
 }
 
+.gt_wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 45px;
+}
 
-
-
+.gt_wrapper footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
 
 
 

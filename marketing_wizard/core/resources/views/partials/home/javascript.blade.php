@@ -9,6 +9,7 @@
 <script src="{{ asset('assets/theme-new/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/Parsley.js-2.8.0/dist/parsley.js') }}"></script>
 <script src="{{ asset('assets/datatable/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/theme-new/js/ajaxscript.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 	$('#myTable').DataTable( {
 		"dom": '<"top"lf>rt<"bottom"ip><"clear">',

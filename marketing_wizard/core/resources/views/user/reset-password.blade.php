@@ -53,29 +53,24 @@
         </div>
         @endif
 
-        <div class="gt_about_wrap" style="margin-bottom: 10px;">
-            <h4 class="title text-center">User Password Reset</h4>
+        <div class="ibox-content" style="">
+            <h2 class="font-bold">User Password Reset</h2>
+            <p>
+                Enter your email address and your password will be reset and emailed to you.
+            </p>
             {!! Form::open(['route'=>'user-forget-password-submit']) !!}
 
             <div class="row">
-                <div class="col-md-3 text-center">
-                    <h5> Email : </h5>
-                </div>
-                <div class="col-md-8">
-                    <input type="email" name="email" placeholder="Enter Your Email Address" id="" class="form-control" style="border: 1px solid greenyellow" required>
+                <div class="col-lg-12">
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Enter Your Email Address" id="" class="form-control" style="border: 1px solid greenyellow" required>
+                        </div>
+                        <input type="submit" value="Reset Password" class="btn btn-primary block full-width m-b" >
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-8 col-md-offset-3">
-                    <input type="submit" value="Reset Password" class="btn btn-primary btn-block" style="margin-top: 10px">
-                </div>
-
-            </div>
-
             {!! Form::close() !!}
 
-            <a href="{{ action('UserAuthController@getLogin') }}"><small>Login?</small></a>
+            <a href="{{ action('UserAuthController@getLogin') }}"><small>Back to login</small></a>
         </div>
 
         <p class="m-t"> <small><strong>Copyright</strong> Dynamic Video&copy; 2014-2017</small> </p>
