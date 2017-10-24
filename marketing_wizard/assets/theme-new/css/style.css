@@ -8651,7 +8651,9 @@ table.video-page.dataTable thead tr th,table.video-page.dataTable tbody tr td{
   width: 100%;
   bottom: 0;
 }
-
+tr.search-result td.meta{
+  margin-bottom: 20px;
+}
 
 
 
