@@ -9,7 +9,7 @@
 3.create marketing_wizard database and import sql file.
 
 
-4.config DB info in .env file and core/config/database.php
+4.config DB info in .env file and config/database.php
   like below
             {'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
