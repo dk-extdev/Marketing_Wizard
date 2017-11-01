@@ -24,7 +24,7 @@
 7.after sucessfuly installed and key generate. command: php artisan key:generate
 
 
-8.end: visit like this: http://localhost.com/marketing_wizard/public
+8.end: visit like this: http://localhost.com/marketing_wizard/public (customer side), http://localhost.com/marketing_wizard/public/admin (admin side)
 
 
 9.for login use email:dk1986830@gmail.com, password:123456
