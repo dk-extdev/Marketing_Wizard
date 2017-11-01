@@ -18,16 +18,20 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone');
+            $table->string('phone')->nullable();
+            $table->boolean('status')->default(false);
+            $table->string('type');
             $table->rememberToken();
             $table->timestamps();
         });
         DB::table('users')->insert(
             array(
-                'name' => 'Danil',
-                'email' => 'dk1986830@gmail.com',
+                'name' => 'Jhone Doe',
+                'email' => 'jddynamic@gmail.com',
                 'password' => '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC',
-                'phone' => '123456789'
+                'phone' => '123456789',
+                'status' => true,
+                'type' => 'Basic'
             )
         );
 

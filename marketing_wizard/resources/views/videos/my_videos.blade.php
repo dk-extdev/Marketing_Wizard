@@ -1,4 +1,4 @@
-@extends('layouts.home')@section('title', 'Exam category')@section('content')
+@extends('layouts.home')@section('title', 'My Videos')@section('content')
 <div class="gt_main_content_wrap">
     <section class="gt_about_bg">
         <div class="container">

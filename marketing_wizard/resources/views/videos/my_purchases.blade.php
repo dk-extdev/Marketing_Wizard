@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Exam category')
+@section('title', 'My Purchases')
 
 @section('content')<head>
 <style>.footer{margin-top:2%;}</style></head>

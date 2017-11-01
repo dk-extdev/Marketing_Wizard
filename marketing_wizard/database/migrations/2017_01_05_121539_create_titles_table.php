@@ -21,7 +21,7 @@ class CreateTitlesTable extends Migration
         });
         DB::table('titles')->insert(
             array(
-                'title' => 'Marketing Wizard'
+                'title' => 'Dynamic Video'
             )
         );
     }

@@ -1,0 +1,11 @@
+table .view-video-hyper{
+	display: inline-block;
+    width: 24px;
+    vertical-align: middle;
+    text-align: center;
+}
+.modal-body .update-type-success{
+	color: #00a65a !important;
+    margin-left: 10px;
+    display: none;
+}

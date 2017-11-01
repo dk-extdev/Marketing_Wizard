@@ -13,7 +13,7 @@
 
         </div>
         <h3>Welcome to Dynamic Video</h3>
-        <p>Hello there! Sign in and start becoming a Marketing Wizzard!
+        <p>Hello there! Sign in and start becoming a Dynamic Video!
             <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
         </p>
         <p>Login in. To see it in action.</p>

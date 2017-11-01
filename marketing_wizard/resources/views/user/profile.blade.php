@@ -8,14 +8,6 @@
     <section class="gt_about_bg">
         <div class="container">
             <div class="row">
-
-                <!-- <div class="panel panel-default panel_custom_1">
-                    <div class="panel-heading">Settings</div>
-                    <div class="panel-body">
-
-                    </div>
-                </div> -->
-
                 <div class="col-lg-12 margin_top_10">
                     <div class="ibox float-e-margins"><div class="ibox-title">
                         <h2>
@@ -83,7 +75,6 @@
                         </div>
                     </div>
                 </div>
-
             </div><!--ibox-content-->
         </div><!--ibox-->
     </div>

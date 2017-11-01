@@ -23,6 +23,50 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Danil K', 'dk1986830@gmail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', NULL, NULL, NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+--
 -- Table structure for table `contacts`
 --
 
@@ -219,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `titles` (
 --
 
 INSERT INTO `titles` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'Marketing Wizard', NULL, '2017-10-10 11:49:13');
+(1, 'Dynamic Video', NULL, '2017-10-10 11:49:13');
 
 -- --------------------------------------------------------
 
@@ -233,6 +277,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` boolean COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -244,11 +290,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Danil', 'dk1986830@gmail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', 'y4GTKINwHVjhANZRe3pjKIGHd1uCZinBEijieV5Lku0k6fW6Lu2tDBruvfg3', NULL, '2017-10-21 18:28:22'),
-(9, 'User 1', 'user1@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44'),
-(10, 'User 2', 'user2@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44'),
-(14, 'User 3', 'user3@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `status`, `type`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Danil', 'dk1986830@gmail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', '1', 'Basic', 'y4GTKINwHVjhANZRe3pjKIGHd1uCZinBEijieV5Lku0k6fW6Lu2tDBruvfg3', NULL, '2017-10-21 18:28:22'),
+(2, 'User 1', 'user1@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', '1', 'Basic', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44'),
+(3, 'User 2', 'user2@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', '1', 'Standard', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44'),
+(4, 'User 3', 'user3@mail.com', '$2y$10$GLqc1X/UNWW3kAy42zESuelBWeAIVeLgJRXIdzD/Y6vnnH0auRGGC', '123456789', '0', 'Basic', 'paAAvC5DrDdNMXwpnOPTQmI7sVPdEnIRoXGiT8CZkMU0vN7xUCB76afVitOl', NULL, '2017-10-19 17:46:44');
+
 
 -- --------------------------------------------------------
 

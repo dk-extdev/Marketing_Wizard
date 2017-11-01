@@ -15,9 +15,17 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('number');
+            $table->string('address');
             $table->string('email');
             $table->timestamps();
         });
+        DB::table('contacts')->insert(
+            array(
+                'email' => 'dk1986830@gmail.com',
+                'number' => '123456',
+                'address' => 'Moscow,Russia'
+            )
+        );
     }
 
     /**

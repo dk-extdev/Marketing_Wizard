@@ -52,15 +52,12 @@ class UserAuthController extends Controller
         if (Auth::guard('user')->attempt([
             'email' => $request->email,
             'password' => $request->password,
+            'status' => 1
         ])){
-
             $user_exists = User::where('email', '=', $request->email)->first();
-
             Session::flash('success', 'Log In Successfully');
             Session::put('user','user');
             Session::put('user_id_loggedin',$user_exists->id);
-            // return redirect()->route('exam');
-            // return redirect('exam/getExam');
             return redirect()->action('VideosController@getVideos');
 
         }

@@ -43,3 +43,40 @@ Route::get('settings', ['as'=>'settings', 'uses'=>'UserAuthController@getProfile
 
 Route::post('update_user_info', ['as'=>'update_user_info', 'uses'=>'UserAuthController@update_user_info']);
 Route::post('update_user_password', ['as'=>'update_user_password', 'uses'=>'UserAuthController@update_user_password']);
+
+/* Admin */
+/*Route::get('/admin',function(){
+	return view('admin.login');
+});*/
+Route::get('/admin',['as'=>'home','uses'=>'AdminController@getLogin']);
+Route::get('/admin/login', ['as'=>'adminlogin', 'uses'=>'AdminController@getLogin']);
+Route::post('/admin/login', ['as'=>'admin_login', 'uses'=>'AdminController@postLogin']);
+Route::get('/admin/dashboard', ['as' => 'admin_dashboard', 'uses' => 'AdminDashboardController@dashboard']);
+Route::get('admin-logout', ['as'=>'admin-logout', 'uses' => 'AdminController@logout']);
+Route::get('/admin/createcustomer', ['as'=>'admin_create_customer', 'uses'=>'CustomerController@create']);
+Route::post('/admin/createcustomer', ['as'=>'admin_add_customer', 'uses'=>'CustomerController@add']);
+
+
+Route::get('/admin/viewcustomer', ['as'=>'admin_view_customer', 'uses'=>'CustomerController@view']);
+Route::post('/admin/typeupdate', ['as' => 'typeupdate', 'uses' => 'CustomerController@typeUpdate']);
+Route::get('/admin/editcustomer/{id}', ['as' => 'admin_edit_customer', 'uses' => 'CustomerController@edit']);//admin_update_customer
+Route::post('/admin/updatecustomer/{id}', ['as' => 'admin_update_customer', 'uses' => 'CustomerController@update']);
+Route::post('/admin/deletecustomer/{id}', ['as' => 'admin_delete_customer', 'uses' => 'CustomerController@delete']);
+
+Route::get('/admin/setting', ['as' => 'admin_setting', 'uses' => 'AdminDashboardController@setting']);
+Route::post('update_admin_password', ['as'=>'update_admin_password', 'uses'=>'AdminController@update_admin_password']);
+Route::post('update_admin_email', ['as'=>'update_admin_email', 'uses'=>'AdminController@update_admin_email']);
+
+
+//Route::get('/admin/viewcustomer/{id}', ['as' => 'admin_edit_customer', 'uses' => 'CustomerController@edit']);
+
+/*Route::get('resetPassword/{token}', ['as' => 'resetPassword', function($token)
+{
+   return View::make('resetPassword')->with('token', $token); 
+}]);*/
+/*Route::get('admin/login', 'AdminAuth\AuthController@showLoginForm');
+Route::post('admin/login', 'AdminAuth\AuthController@login');
+Route::group(['middleware'=>['admin']],function(){
+	Route::get('/admin','AdminController@index');
+	Route::get('/admin/logout','AdminAuth\AuthController@logout');
+});*/
