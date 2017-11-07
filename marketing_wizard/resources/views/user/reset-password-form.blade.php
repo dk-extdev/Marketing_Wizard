@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'User Login')
+@section('title', 'User Password Reset')
 
 @section('content')
 
@@ -10,7 +10,11 @@
         <section class="gt_about_bg">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="middle-box text-center animated fadeInDown">
+                        <div>
+                            <h1 class="logo-name">DV</h1>
+                        </div>
+                        <h3>User Password Reset</h3>
                         @if (session()->has('message'))
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -37,13 +41,7 @@
                                 </ul>
                             </div>
                         @endif
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-6 col-md-offset-3 col-sm-12">
                         <div class="gt_about_wrap" style="margin-bottom: 10px;">
-                            <h4 class="title text-center">User Password Reset</h4>
                             {!! Form::open(['route'=>'user-reset-password-submit']) !!}
 
                             <input type="hidden" name="token" value="{{ $token }}">
@@ -81,15 +79,13 @@
                                 </div>
 
                             </div>
-
                             {!! Form::close() !!}
                         </div>
-                    </div>
                 </div>
+                
             </div>
         </section>
         <!--About Us Wrap End-->
-
     </div>
     <!--Main Content Wrap End-->
 

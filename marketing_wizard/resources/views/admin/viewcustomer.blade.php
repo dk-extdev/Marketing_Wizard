@@ -26,6 +26,17 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<table id="customerTable" class="table table-bordered table-striped">
+						<cols>
+                    		<col width = "10%" >
+                    		<col width = "10%" >
+                    		<col width = "10%" >
+                    		<col width = "15%" >
+                    		<col width = "10%" >
+                    		<col width = "10%" >
+                    		<col width = "10%" >
+                    		<col width = "10%" >
+                    		<col width = "15%" >
+                    	</cols>
 						<thead>
 						<tr>
 							<th>ID</th>
@@ -47,10 +58,13 @@
 									<td>{{ $customer->name }}</td>
 									<td>{{ $customer->email }}</td>
 									<td>{{ $customer->created_at }}</td>
-									<td><a href="#" class="video_modal" customerid="{{ $customer->id }}" customername="{{ $customer->name }}" data-videos="{{ isset($videosdata[$customer->id]) ? $videosdata[$customer->id] : '' }}">{{ $customer->completed_video_num }}  Vidoes</a></td>
-									<td>{{ $customer->rendering_video_num }}  Vidoes</td>
-									<td>{{ $customer->status }}</td>
-									<td><a href="{{ route('admin_edit_customer', [$customer->id]) }}" class="view-video-hyper"><span class="fa fa-edit"></span></a><a href="#" id="hypercustomerid{{ $customer->id }}" customerid="{{ $customer->id }}" customertype="{{ $customer->type }}" class="transaction_modal view-video-hyper"><span class="fa fa-dollar"></span></a><a href="#" data-id="{{ $customer->id }}" class="delete-customer-id view-video-hyper"><span class="fa fa-trash"></span></a></td>
+									@if ($customer->completed_video_num >= 1)
+									<td><a href="#" class="video_modal" customerid="{{ $customer->id }}" customername="{{ $customer->name }}" data-videos="{{ isset($videosdata[$customer->id]) ? $videosdata[$customer->id] : '' }}">{{ $customer->completed_video_num }}  Videos</a></td>
+									@else <td>{{ $customer->completed_video_num }}  Videos</td>
+									@endif
+									<td>{{ $customer->rendering_video_num }}  Videos</td>
+									<td id="customer_status_show">@if ($customer->status == 1) Yes @else No @endif</td>
+									<td><a href="{{ route('admin_edit_customer', [$customer->id]) }}" class="view-video-hyper"><span class="fa fa-edit"></span></a><a href="#" id="hypercustomerid{{ $customer->id }}" customerid="{{ $customer->id }}" customertype="{{ $customer->type }}" class="transaction_modal view-video-hyper"><span class="fa fa-dollar"></span></a><button type="button" class="btn btn-block btn-primary customer-suspend" data-suspendid="{{ $customer->id }}">@if ($customer->status == 1) Suspend @else Unsuspend @endif</button><a href="#" data-id="{{ $customer->id }}" class="delete-customer-id view-video-hyper"><span class="fa fa-trash"></span></a></td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -89,7 +103,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-									<h4 class="modal-title">Customer Videos</h4>
+									<h4 class="modal-title">Customer Transactions</h4>
 							</div>
 							<div class="modal-body">
 								<div class="row">

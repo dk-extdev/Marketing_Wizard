@@ -61,7 +61,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-envelope"></i>
                 </div>
-                <input type="email" name="new_customer_email" class="form-control" value="{{ $userdata->email }}">
+                <input type="email" name="new_customer_email" required="true" class="form-control" value="{{ $userdata->email }}">
               </div>
               <!-- /.input group -->
             </div>
@@ -71,7 +71,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-lock"></i>
                 </div>
-                <input type="text" id="new_customer_password" name="new_customer_password" required="true" class="form-control">
+                <input type="text" id="new_customer_password" name="new_customer_password" class="form-control">
                 <span class="input-group-btn">
                   <button type="button" id="btn_generate" class="btn btn-info btn-flat">Regenerate</button>
                 </span>

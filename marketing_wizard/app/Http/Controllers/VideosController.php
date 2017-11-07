@@ -46,6 +46,32 @@ class VideosController extends Controller
         ->withFooter($footer);
     }
 
+    public function createVideos()
+    {
+
+        $user_id_loggedin = Session::get('user_id_loggedin');
+
+        if($user_id_loggedin == ''){
+            return redirect()->action(
+                'UserAuthController@getLogin'
+            );
+        }
+
+        $logo = Logo::first();
+        $social = SocialIcon::first();
+        $contact = Contact::first();
+        $title = Title::first();
+        $footer = Footer::first();
+
+
+        return view('videos.create')
+        ->withLogo($logo)
+        ->withSocial($social)
+        ->withContact($contact)
+        ->withTitle($title)
+        ->withFooter($footer);
+    }
+
     public function getMyVideos()
     {
 

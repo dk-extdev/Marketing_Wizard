@@ -28,7 +28,7 @@
 
                     <li class = "create_video">
 
-                        <a aria-expanded="false" role="button" href="index.php?menu=create_video"><i class="fa fa-play-circle-o"></i> <span class="nav-label">Create Video</span></a>
+                        <a aria-expanded="false" role="button" href="{{ action('VideosController@createVideos') }}"><i class="fa fa-play-circle-o"></i> <span class="nav-label">Create Video</span></a>
 
                     </li>
 

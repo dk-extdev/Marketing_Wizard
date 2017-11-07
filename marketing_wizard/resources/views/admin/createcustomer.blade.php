@@ -61,7 +61,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-envelope"></i>
                 </div>
-                <input type="email" name="new_customer_email" class="form-control">
+                <input type="email" name="new_customer_email" class="form-control" required>
               </div>
               <!-- /.input group -->
             </div>

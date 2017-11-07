@@ -32,6 +32,7 @@
 <script src="{{ asset('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('assets/admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+<script src="{{ asset('assets/admin/bower_components/bootstrap-modal/bootstrap-dialog.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/admin/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

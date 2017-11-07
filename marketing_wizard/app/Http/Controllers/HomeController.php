@@ -75,16 +75,12 @@ class HomeController extends Controller
             $footer = Footer::first();
             $mail_val = [
                 'email' => $user->email,
-                'name' => $user->lname.' '.$user->fname,
+                'name' => $user->name,
                 'g_email' => $contact->email,
                 'g_title' => $title->title,
                 'subject' => 'Password Reset',
             ];
-            Config::set('mail.driver','mail');
-            Config::set('mail.from',$contact->email);
-            Config::set('mail.name',$title->title);
-
-            Mail::send('auth.reset-email', ['name' => $user->name,'link'=>$url,'footer'=>$footer->left_footer], function ($m) use ($mail_val) {
+            Mail::send('mail.reset-mail', ['name' => $user->name,'link'=>$url,'footer'=>$footer->left_footer], function ($m) use ($mail_val) {
                 $m->from($mail_val['g_email'], $mail_val['g_title']);
                 $m->to($mail_val['email'], $mail_val['name'])->subject($mail_val['subject']);
             });
@@ -92,7 +88,6 @@ class HomeController extends Controller
             session()->flash('message', 'Check Your Email.Reset link Successfully send.');
             Session::flash('type', 'success');
             return redirect()->back();
-
         }else{
             session()->flash('message', 'Email Not Match our Recorded.');
             Session::flash('type', 'warning');

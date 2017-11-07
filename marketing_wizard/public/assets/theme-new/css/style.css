@@ -8300,7 +8300,7 @@ body.md-skin {
     border: 0px none rgb(109, 106, 183);
     font: normal normal bold normal 26px / 20px "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     outline: rgb(109, 106, 183) none 0px;
-    padding: 22px 18px 10px 0px;
+    padding: 30px 18px 10px 0px;
 }/*#A_1*/
 
 #create_video {
@@ -8654,7 +8654,9 @@ table.video-page.dataTable thead tr th,table.video-page.dataTable tbody tr td{
 tr.search-result td.meta{
   margin-bottom: 20px;
 }
-
+body .cropper-invisible{
+  display: none;
+}
 
 
 

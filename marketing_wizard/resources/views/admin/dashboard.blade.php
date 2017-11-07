@@ -27,7 +27,7 @@
           <i class="ion ion-person-add"></i>
         </div>
         <a href="{{ route('admin_create_customer') }}" class="small-box-footer">
-          Create Customer <i class="fa fa-arrow-circle-right"></i>
+          Add New Customer <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>

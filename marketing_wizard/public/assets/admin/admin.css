@@ -9,3 +9,10 @@ table .view-video-hyper{
     margin-left: 10px;
     display: none;
 }
+.customer-suspend{
+	display: inline-block;
+    width: auto;
+}
+.bootstrap-dialog .modal-header {
+	border-radius: 0;
+}

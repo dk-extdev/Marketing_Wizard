@@ -58,26 +58,21 @@ class CustomerController extends Controller
         $user->phone= $request['new_customer_phone'];
         $user->status= $status;
         $user->type= $request['new_customer_type'];
+        $contact = Contact::first();
         if($user->save()){
             Session::flash('success', 'New Customer Created Successfully');
             if($request['new_customer_confirm']=='on'){
-			    //$note = new WelcomeNote($user);
-			    //Mail::to($user->email)->send($note);
-			    /*$contact = Contact::first();
-			    $data = array(
-			    	'email' => $request['new_customer_email'],
-			    	'subject' => 'Wecome to create Account',
-			    	'g_email' => 'lenadolgova714@gmail.com',
-			    	'bodyMessage' => 'Please try to login with password'
-			    	);
-			    Mail::send('admin.email', $data, function($message) use ($data){
-			    	echo $data['g_email'];
-			    	echo $data['email'];
-			    	echo $data['subject'];
-			    	$message->from($data['g_email']);
-			    	$message->to($data['email']);
-			    	$message->subject($data['subject']);
-			    });*/
+                $data = array(
+                    'name'=>$request['new_customer_name'],
+                    'contactemail'=>$contact->email,
+                    'email'=>$request['new_customer_email'],
+                    'password'=>$request['new_customer_password'],
+                    'bodyMessage'=>'Thanks for your joining Dynamic Video App. Please try to login with this info. Email:'.$request['new_customer_email'].' Password:'.$request['new_customer_password']
+                );
+                Mail::send('mail.mail', $data, function($message) use ($data) {
+                 $message->to( $data['email'], 'New Customer Create')->subject('Welcome To Create Customer');
+                 $message->from($data['contactemail'],'');
+                });
             }
         }else{
             $request->session()->flash('message', 'There was error saving the info!');
@@ -86,7 +81,7 @@ class CustomerController extends Controller
     }
     public function update($id, Request $request)
 	{
-		 $admin_id_loggedin = Session::get('admin_id_loggedin');
+		$admin_id_loggedin = Session::get('admin_id_loggedin');
 
         if($admin_id_loggedin == ''){
             return redirect()->action(
@@ -99,29 +94,27 @@ class CustomerController extends Controller
 		}else $status = 0;
         $user->name= $request['new_customer_name'];
         $user->email= $request['new_customer_email'];
-        $user->password= Hash::make($request['new_customer_password']);
+        if($request['new_customer_password']) {
+            $user->password= Hash::make($request['new_customer_password']);
+        }
         $user->phone= $request['new_customer_phone'];
         $user->status= $status;
         $user->type= $request['new_customer_type'];
+        $contact = Contact::first();
+        echo $request['new_customer_confirm'];
         if($user->save()){
             Session::flash('success', 'Customer Info Updated Successfully');
-            if($request['new_customer_confirm']=='on'){
-			    $contact = Contact::first();
-			    $data = array(
-			    	'email' => $request['new_customer_email'],
-			    	'subject' => 'Updated Account',
-			    	'g_email' => 'lenadolgova714@gmail.com',
-			    	'bodyMessage' => 'Please try to login with password'
-			    	);
-			    Mail::send('admin.email', $data, function($message) use ($data){
-			    	echo $data['g_email'];
-			    	echo $data['email'];
-			    	echo $data['subject'];
-			    	$message->from($data['g_email']);
-			    	$message->to($data['email']);
-			    	$message->subject($data['subject']);
-			    });
-            }
+		    $data = array(
+                'name'=>$request['new_customer_name'],
+                'contactemail'=>$contact->email,
+                'email'=>$request['new_customer_email'],
+                'password'=>$request['new_customer_password'],
+                'bodyMessage'=>'Successfully Updated Customer Info. Here is updated login info. Email:'.$request['new_customer_email'].' Password:'.$request['new_customer_password']
+            );
+            Mail::send('mail.mail', $data, function($message) use ($data) {
+             $message->to( $data['email'], 'Update Customer')->subject('Customer Info Updated');
+             $message->from($data['contactemail'],'');
+            });
         }else{
             $request->session()->flash('message', 'There was error saving the info!');
         }
@@ -160,8 +153,6 @@ class CustomerController extends Controller
     }
     public function typeUpdate(Request $request)
     {
-    	print_r($request['type']);
-    	print_r($request['id']);
         $admin_id_loggedin = Session::get('admin_id_loggedin');
 
         if($admin_id_loggedin == ''){
@@ -189,6 +180,30 @@ class CustomerController extends Controller
         $response = array();
         $response['success'] = 'success';
         $response['id'] = $id;
+        return \Response::json($response);
+    }
+    public function suspend($id)
+    {
+        $admin_id_loggedin = Session::get('admin_id_loggedin');
+
+        if($admin_id_loggedin == ''){
+            return redirect()->action(
+                'AdminController@getLogin'
+            );
+        }
+        $user = User::find($id);
+        if($user['status']==1){
+            User::where('id', $id)->update(['status' => '0']);
+            $returnstatus = 0;
+        }else{
+            User::where('id', $id)->update(['status' => '1']);
+            $returnstatus = 1;
+
+        }
+        $response = array();
+        $response['success'] = 'success';
+        $response['id'] = $id;
+        $response['returnstatus'] = $returnstatus;
         return \Response::json($response);
     }
 }

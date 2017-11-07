@@ -63,8 +63,53 @@ $(function () {
       }
     });
     var id = $(this).data('id');
+    BootstrapDialog.show({
+        title: 'Delete Customer',
+        message: 'Are you sure you want to delete this customer?',
+        buttons: [
+        {
+            label: 'Cancel',
+            action: function(dialogItself){
+                dialogItself.close();
+            }
+        },{
+            label: 'Delete',
+            // no title as it is optional
+            cssClass: 'btn-danger',
+            action: function(dialogItself){
+              dialogItself.close();
+              $.ajax({
+                  url: "deletecustomer/"+id,
+                  type: 'POST',
+                  dataType: "json",
+                  data: {
+                      "id": id,
+                  },
+                  success: function (data)
+                  {
+                      if(data.success=="success"){
+                        $('#customerTable tr').each(function(){
+                          if($(this).data('id') && $(this).data('id')==data.id){
+                            $(this).remove();
+                          }
+                        });
+                      }
+                  }
+              });
+            }
+        }
+        ]
+    });
+  });
+  $('.customer-suspend').click(function(){
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    var id = $(this).data('suspendid');
     $.ajax({
-        url: "deletecustomer/"+id,
+        url: "suspendcustomer/"+id,
         type: 'POST',
         dataType: "json",
         data: {
@@ -72,14 +117,17 @@ $(function () {
         },
         success: function (data)
         {
-            if(data.success=="success"){
-              $('#customerTable tr').each(function(){
+          if(data.success=="success"){
+            $('#customerTable tr').each(function(){
                 if($(this).data('id') && $(this).data('id')==data.id){
-                  $(this).remove();
+                  if(data.returnstatus==1){
+                    $(this).find('td button.customer-suspend').html("Suspend");
+                  }else{
+                    $(this).find('td button.customer-suspend').html("Unsuspend");
+                  }
                 }
-              });
-              alert("Customer Detelted Successfully!");
-            }
+            });
+          }
         }
     });
   });
