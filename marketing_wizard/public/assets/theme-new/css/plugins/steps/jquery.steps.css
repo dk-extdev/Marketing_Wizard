@@ -171,6 +171,14 @@
 {
     list-style: disc !important;
 }
+.wizard > .content > .body ul.pagination
+{
+    list-style: none !important;
+}
+.wizard > .content > .body ul.pagination li
+{
+    display: inline-block;
+}
 
 .wizard > .content > .body ul > li
 {

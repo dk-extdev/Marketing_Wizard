@@ -26,7 +26,7 @@ class AdminDashboardController extends Controller
         }
         $totalvideos = UserVideos::where('status','=','Completed')->count();
         $totalcustomers = User::count();
-        $todayvideos = UserVideos::whereRaw('DATE(created_at) = CURDATE()')->where('status','=','Completed')->count();
+        $todayvideos = UserVideos::whereRaw('DATE(updated_at) = CURDATE()')->where('status','=','Completed')->count();
 
         return view('admin.dashboard')
         ->with('totalvideos', $totalvideos)

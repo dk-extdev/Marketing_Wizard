@@ -44,6 +44,12 @@ Route::get('/settings', ['as'=>'settings', 'uses'=>'UserAuthController@getProfil
 Route::post('/update_user_info', ['as'=>'update_user_info', 'uses'=>'UserAuthController@update_user_info']);
 Route::post('/update_user_password', ['as'=>'update_user_password', 'uses'=>'UserAuthController@update_user_password']);
 Route::get('/create_videos', ['as' => 'create_videos', 'uses' => 'VideosController@createVideos']);
+Route::get('/create_videos/page', ['as' => 'create_videos_page', 'uses' => 'VideosController@createVideosPage']);
+Route::post('/create_videos/sort/{sort}/search/{search}', ['as' => 'create_videos_search', 'uses' => 'VideosController@createVideosSearch']);
+Route::post('/create_videos/render', ['as' => 'create_videos_render', 'uses' => 'VideosController@createVideosRender']);
+Route::post('/receive', ['as' => 'create_videos_receive', 'uses' => 'VideosController@createVideosReceive']);
+
+
 
 /* Admin */
 /*Route::get('/admin',function(){
